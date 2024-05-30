@@ -1,2 +1,5 @@
 plotly-express
 plotly
+matplotlib
+pandas
+numpy
