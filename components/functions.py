@@ -1,5 +1,7 @@
 from datetime import datetime, timedelta
 import pandas as pd
+from sklearn.metrics import mean_squared_error
+import numpy as np
 
 def get_node_data_from_merged(merged_data, node_index):
     filtered = merged_data[merged_data["node"] == node_index]
@@ -15,5 +17,8 @@ def unflatten_dataframe(df_flat):
     return df
 
 def get_feature_with_dates(df,feature_index) :    
-    filtered = df.iloc[:,feature_index:feature_index+1]
+    filtered = df.iloc[:,feature_index]
     return filtered
+
+def rmse(y_true, y_pred):
+    return np.sqrt(mean_squared_error(y_true, y_pred))
